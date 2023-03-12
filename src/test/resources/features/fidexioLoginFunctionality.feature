@@ -40,7 +40,8 @@ Feature: Fidexio Login Functionality
 
 
   Scenario: "Wrong login/password" message should be displayed for invalid credentials
-    When User enters incorrect credentials
+    When User enters an email "<email>"
+    And User enters a password "<password>"
     Then "Wrong login/password" should be displayed
 
 
