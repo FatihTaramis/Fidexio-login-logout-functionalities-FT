@@ -4,44 +4,43 @@ Feature: Fidexio Login Functionality
   Background:
     Given User is on Fidexio log in page
 
-  Scenario Outline: Users can log in with valid credentials: SalesManager
+  Scenario Outline: Users can log in with valid credentials: SalesManager and PosManager
     When User enters an email "<email>"
     And User enters a password "<password>"
-    Then User clicks the login button
+    And User clicks the login button
     Then User should successfully log in to the homepage
 
     Examples: Valid credentials for SM
       | email                   | password     |
       | salesmanager46@info.com | salesmanager |
       | salesmanager15@info.com | salesmanager |
+      | posmanager46@info.com   | posmanager   |
+      | posmanager10@info.com   | posmanager   |
 
-  Scenario Outline: Users can log in with valid credentials: PosManager
-    When User enters an email "<email>"
-    And User enters a password "<password>"
-    Then User clicks the login button
-    Then User should successfully log in to the homepage
 
-    Examples: Valid credentials for PM
-      | email                 | password   |
-      | posmanager46@info.com | posmanager |
-      | posmanager10@info.com | posmanager |
-
-  Scenario Outline: "Please fill out this field" message should be displayed for empty fields
+  Scenario Outline: "Wrong login/password" message should be displayed for invalid credentials
     When User enters an email "<email>"
     And User enters a password "<password>"
     And User clicks the login button
-    Then User should see the message
+    Then The User should see the message "Wrong login/password"
+
+    Examples: email or password is invalid
+    | email                   | password     |
+    | asdf@info.com           | asdf         |
+    | asdf@info.com           | salesmanager |
+    | salesmanager15@info.com | asdf         |
+
+
+  Scenario Outline: "Please fill in this field." message should be displayed for empty fields
+    When User enters an email "<email>"
+    And User enters a password "<password>"
+    And User clicks the login button
+    Then User should see the "Please fill in this field." message
 
     Examples: email and/or password left empty
       | email                    | password     |
       |                          | salesmanager |
-      | salesmanager100@info.com |              |
+      | salesmanager46@info.com  |              |
       |                          |              |
-
-
-  Scenario: "Wrong login/password" message should be displayed for invalid credentials
-    When User enters an email "<email>"
-    And User enters a password "<password>"
-    Then User should see message
 
 
