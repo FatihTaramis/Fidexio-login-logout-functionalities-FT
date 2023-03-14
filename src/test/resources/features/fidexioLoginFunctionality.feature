@@ -10,7 +10,7 @@ Feature: Fidexio Login Functionality
     And User clicks the login button
     Then User should successfully log in to the homepage
 
-    Examples: Valid credentials for SM
+    Examples: Valid credentials for SM & PM
       | email                   | password     |
       | salesmanager46@info.com | salesmanager |
       | salesmanager15@info.com | salesmanager |
@@ -42,5 +42,31 @@ Feature: Fidexio Login Functionality
       |                          | salesmanager |
       | salesmanager46@info.com  |              |
       |                          |              |
+
+    Scenario Outline: User lands on the ‘reset password’ page after clicking on the "Reset password" link
+
+
+    Scenario Outline: User should see the password in bullet signs by default
+      When User enters a password "<password>"
+      Then User should see the password in bullet signs
+
+      Examples: Valid passwords for SM & PM
+        | password     |
+        | salesmanager |
+        | posmanager   |
+
+
+    Scenario Outline: Verify if the ‘Enter’ key of the keyboard is working correctly on the login page
+      When User enters an email "<email>"
+      And User enters a password "<password>"
+      And User presses the 'enter' key
+      Then User should successfully log in to the homepage
+
+      Examples: Valid credentials for SM & PM
+        | email                   | password     |
+        | salesmanager46@info.com | salesmanager |
+        | salesmanager15@info.com | salesmanager |
+        | posmanager46@info.com   | posmanager   |
+        | posmanager10@info.com   | posmanager   |
 
 
