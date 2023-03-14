@@ -68,35 +68,24 @@ public class LoginFunctionalityStepDefinitions {
 
         Assert.assertTrue(fidexioLoginPage.wrongLoginPasswordDisplay.isDisplayed());
     }
+
+    @And("User presses the {string} key")
+    public void userPressesTheEnterKey() {
+        fidexioLoginPage.passwordBox.sendKeys(Keys.ENTER);
+    }
+
+
+    @Then("User should see the password in bullet signs")
+    public void userShouldSeeThePasswordInBulletSigns() {
+        BrowserUtils.sleep(3);
+        Assert.assertEquals(fidexioLoginPage.passwordBox.getAttribute("type"), "password");
+    }
+
+
+
+
+
+
 }
 
 
-//    @When("User enters the correct SalesManager credentials")
-//    public void userEntersTheCorrectSalesManagerCredentials() {
-//        fidexioLoginPage.emailBox.sendKeys("salesmanager15@info.com" + Keys.TAB);
-//        fidexioLoginPage.passwordBox.sendKeys("salesmanager" + Keys.ENTER);
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
-
-//    @When("User enters the correct PosManager credentials")
-//    public void userEntersTheCorrectPosManagerCredentials() {
-//        fidexioLoginPage.emailBox.sendKeys("posmanager10@info.com" + Keys.TAB);
-//        fidexioLoginPage.passwordBox.sendKeys("posmanager" + Keys.ENTER);
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
-//    @Then("User should successfully log in to the homepage")
-//    public void userShouldSuccessfullyLogInToTheHomepage() {
-//        String expectedUrl = "https://qa.fidexio.com/web?#menu_id=115&action=120&active_id=channel_inbox";
-//        String actualUrl = Driver.getDriver().getCurrentUrl();
-//        Assert.assertEquals(actualUrl,expectedUrl);
-//    }
