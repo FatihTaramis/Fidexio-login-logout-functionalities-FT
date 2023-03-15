@@ -70,7 +70,7 @@ public class LoginFunctionalityStepDefinitions {
     }
 
     @And("User presses the {string} key")
-    public void userPressesTheEnterKey() {
+    public void userPressesTheEnterKey(String argo0) {
         fidexioLoginPage.passwordBox.sendKeys(Keys.ENTER);
     }
 
