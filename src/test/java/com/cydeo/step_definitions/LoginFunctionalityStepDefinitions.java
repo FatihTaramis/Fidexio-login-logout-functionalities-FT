@@ -25,7 +25,7 @@ public class LoginFunctionalityStepDefinitions {
 
     @When("User enters an email {string}")
     public void userEntersAnEmail(String arg0) {
-        fidexioLoginPage.emailBox.sendKeys(arg0 + Keys.TAB);
+        fidexioLoginPage.emailBox.sendKeys(arg0);
     }
 
     @And("User enters a password {string}")
@@ -80,10 +80,6 @@ public class LoginFunctionalityStepDefinitions {
         BrowserUtils.sleep(3);
         Assert.assertEquals(fidexioLoginPage.passwordBox.getAttribute("type"), "password");
     }
-
-
-
-
 
 
 }
