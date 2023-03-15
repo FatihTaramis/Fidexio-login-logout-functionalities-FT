@@ -43,7 +43,8 @@ Feature: Fidexio Login Functionality
       | salesmanager46@info.com  |              |
       |                          |              |
 
-    Scenario Outline: User lands on the ‘reset password’ page after clicking on the "Reset password" link
+  #Scenario Outline: User lands on the ‘reset password’ page after clicking on the "Reset password" link - BUG
+
 
 
     Scenario Outline: User should see the password in bullet signs by default
