@@ -60,6 +60,7 @@ public class LoginFunctionalityStepDefinitions {
             Assert.assertEquals("Please fill in this field.", fidexioLoginPage.passwordBox.getAttribute("validationMessage"));
         }
 
+        BrowserUtils.sleep(2);
     }
 
 
@@ -67,6 +68,7 @@ public class LoginFunctionalityStepDefinitions {
     public void theUserShouldSeeTheMessage(String arg0) {
 
         Assert.assertTrue(fidexioLoginPage.wrongLoginPasswordDisplay.isDisplayed());
+        BrowserUtils.sleep(2);
     }
 
     @And("User presses the {string} key")
