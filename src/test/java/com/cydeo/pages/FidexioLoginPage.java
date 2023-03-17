@@ -23,4 +23,10 @@ public class FidexioLoginPage {
 
     @FindBy(xpath = "//*[@id=\"wrapwrap\"]/main/div/form/p")
     public WebElement wrongLoginPasswordDisplay;
+
+    @FindBy(xpath = "//div[.='Congratulations, your inbox is empty']")
+    public WebElement congratsOnHomepage;
+
+    @FindBy (xpath = "//b[.='Sign in']")
+    public WebElement signInButton;
 }
